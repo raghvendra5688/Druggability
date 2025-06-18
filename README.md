@@ -1,6 +1,8 @@
 # Druggability
 Consensus of ML, Computational Biology and Chemistry approaches for druggability of FDA approved drugs against all human proteins.
 
+Goal is to obtains druggability scores for approximately 4,200 FDA approved drugs against ~20k human proteins where sequence is available from UniProt and structure obtained from [AlphaFold Database](https://alphafold.ebi.ac.uk/).
+
 ## Data Folder Organization:
 
 ### Number of unique drugs with their status and having at least 1 target, transporter or enzyme associated
@@ -71,3 +73,16 @@ drug_sdfs --> Folder contains 3d structure of all drugs in dataset generated usi
 
 ### Protein Fasta
 UP000005640_9606.fasta --> Fasta file containing protein sequence of all AlphaFold Database proteins
+
+## Models Folder:
+
+Contains 18 different machine learning models from [DeepPurpose](https://github.com/kexinhuang12345/DeepPurpose) library 
+
+## Results Folder:
+
+1. ML_virtual_screenings - Contains consensus result of 18 different ML models predict protein-drug interaction
+2. Propagation_scores - Contains protein-drug interaction scores using network-based diffusion approach.
+3. Docking_scores - Contains docking scores for proteins with drugs as ligands using QuickVina2-GPU-2-1
+
+## Scripts Folder:
+
