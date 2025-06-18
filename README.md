@@ -106,6 +106,15 @@ Contains 18 different machine learning models from [DeepPurpose](https://github.
 
 ### For ML-based Scoring
 
+1. load_deepurpose_models.py: Loads 18 different deep learning models using combinations of CNNs, LSTMs and Transformers for protein and drug representations. </br>
+
+2. protein_seq_merging.py: Merges Uniprot based protein sequences with those from AlphaFold database to keep filtered set of protein sequences common in both. </br>
+   Outputs: **UniProtId**, **Label**, **Gene_Name**, **hgnc_symbol**, **Protein_Sequence**
+
+3. drugpurpose_predictions.py: Takes the DL model, filtered protein sequences and smiles representation of drugs to estimate protein-drug interaction scores. </br>
+  
+4. process_virtual_screening.py: Collates the output from drugpurpose_predictions.py and rank aggregates the scores from 18 models using "borda" ranking scheme. </br>
+   Outputs: A matrix comprising **drug ids** as columns and **proteins** as rows.
 
  
 
