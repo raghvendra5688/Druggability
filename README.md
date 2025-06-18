@@ -93,7 +93,19 @@ Contains 18 different machine learning models from [DeepPurpose](https://github.
 1. parse_drug_xml.py: Parses the DrugBank XML database to identify and filter human protein targets for FDA approved drugs (filter). </br>
    Outputs: **Drug Id**, **Partner Id (Target)**, **Gene Name**, **Inhibitor**, **Antagonist**, **Agonist** 
 
+2. parse_string_db.R: Parses the STRING PPI network to retain high confidence protein-protein interactions. </br>
+   Outputs: **Protein Src**, **Protein Target**, **Score**
+
+3. drug_smiles_xml.py: Parses the DrugBank XML database to filter FDA-approved drugs and obtain their properties including SMILES representations. </br>
+   Outputs: **drug_id**, **name**, **cas**, **smiles**, **logP**, **ALOGPS**, **logP**, **ChemAxon**, **solubility**, **pKa (strongest acidic)**, **pKa (strongest basic)**
+
+4. database_creation.R: Takes all information related to drug, drug-targets/transporter/enzymes and creates a drug-protein target file. </br>
+  
+5. diffusion_estimation.R: Takes the drug-protein target file and the protein-protein interaction file and performs network diffusion to get drug-target propagation scores. </br>
+   Outputs: A matrix comprising **drug ids** as columns and **proteins** as rows.
+
+### For ML-based Scoring
 
 
-2. 
+ 
 
