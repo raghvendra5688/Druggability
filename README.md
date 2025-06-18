@@ -88,3 +88,8 @@ Contains 18 different machine learning models from [DeepPurpose](https://github.
 
 ## Scripts Folder:
 
+### For Network-Diffusion Scoring
+
+1. parse_drug_xml.py --> Parses the DrugBank XML database to identify and filter human protein targets for FDA approved drugs (filter). 
+			 Outputs: <Drug Id>, <Partner Id (Target)>, <Gene Name>, <Inhibitor>, <Antagonist>, <Agonist>
+2. 
