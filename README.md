@@ -3,6 +3,8 @@ Consensus of ML, Computational Biology and Chemistry approaches for druggability
 
 Goal is to obtains druggability scores for approximately 4,200 FDA approved drugs against ~20k human proteins where sequence is available from UniProt and structure obtained from [AlphaFold Database](https://alphafold.ebi.ac.uk/).
 
+![Basic Workflow](Workflow/Druggability_Workflow_Actual.jpg)
+
 ## Data Folder Organization:
 
 ### Number of unique drugs with their status and having at least 1 target, transporter or enzyme associated
