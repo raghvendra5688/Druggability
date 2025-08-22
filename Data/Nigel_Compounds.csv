@@ -1,0 +1,14 @@
+Compounds Name,Smiles,Status
+3-6-diThioPom,NC1=C2C(C(N(C3CCC(NC3=O)=S)C2=S)=O)=CC=C1,Not listed
+7-F-3-ThioPom,NC1=C2C(C(N(C3CCC(NC3=O)=O)C2=S)=O)=C(F)C=C1,Not listed
+5-7-diF-3-ThioPom,NC1=C2C(C(N(C3CCC(NC3=O)=O)C2=S)=O)=C(F)C=C1F,Not listed
+NAP,CC(C1(C[C@H]2C3)C[C@H]3C[C@H](C2)C1)N4C(C5=CC=CC=C5C4)=O,Not listed
+TFBP,CC1(C2(C)C)C(CC2CC1)N3C(C4=C(F)C(F)=C(F)C(F)=C4C3=O)=O,Not listed
+Pomalidomide,NC1=CC=CC2=C1C(N(C2=O)C3CCC(NC3=O)=O)=O,Approved
+Apremilast,CC(NC1=CC=CC(C(N2[C@H](CS(=O)(C)=O)C3=CC=C(C(OCC)=C3)OC)=O)=C1C2=O)=O,Approved
+36DTP,NC1=CC=CC2=C1C(N(C2=O)C3CCC(NC3=O)=S)=S,Not listed
+3MP,NC1=CC=CC2=C1C(N(C2=O)C3CCC(NC3=O)=O)=S,Not listed
+7-F-36DTP,NC1=CC=C(F)C2=C1C(N(C2=O)C3CCC(NC3=O)=S)=S,Not listed
+MTS-IX-64,O=C1N(C2CCCNC2)C(C3=CC=CC(N)=C31)=O,Not listed
+MTS-IX-52,O=C1N(C2CCCN(C)C2)C(C3=CC=CC(N)=C31)=O,Not listed
+MTS-IX-54,O=C1N(C2CCCN(C(C)=O)C2)C(C3=CC=CC(N)=C31)=O,Not listed
