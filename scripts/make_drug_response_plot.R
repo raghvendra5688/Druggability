@@ -5,20 +5,20 @@ library(tibble)
 
 setwd("/home/rmall/TII/Projects/Raghav/Druggability/")
 
-nlrp3_df <- fread("Results/Raj_Analysis/NLRP3_Drug_Predictions_Subset.csv",header=TRUE)
-nlrp3_df <- as.data.frame(nlrp3_df)
-nlrp3_df$Size <- 1
-nlrp3_df$Color <- "blue"
-nlrp3_df[nlrp3_df$Drug_Name%in%c("ZAPi","LOC14"),]$Color <- "red"
-nlrp3_df[nlrp3_df$Drug_Name%in%c("ZAPi","LOC14"),]$Size <- 3
-subset_nlrp3_df <- nlrp3_df[nlrp3_df$Drug_Name%in%c("ZAPi","LOC14"),]
+ZBP1_df <- fread("Results/Raj_Analysis/ZBP1_Drug_Predictions_Subset.csv",header=TRUE)
+ZBP1_df <- as.data.frame(ZBP1_df)
+ZBP1_df$Size <- 1
+ZBP1_df$Color <- "blue"
+ZBP1_df[ZBP1_df$Drug_Name%in%c("ZAPi","LOC14"),]$Color <- "blue"
+ZBP1_df[ZBP1_df$Drug_Name%in%c("ZAPi","LOC14"),]$Size <- 3
+subset_ZBP1_df <- ZBP1_df[ZBP1_df$Drug_Name%in%c("ZAPi","LOC14"),]
 
 
-g_nlrp3 <- ggplot(nlrp3_df, aes(x=Morgan_AAC_KIBA,y=MPNN_CNN_BindingDB))+
-  geom_point(aes(color=Color,size=Size)) + xlab("DeepPurpose Method 1") + ylab("DeepPurpose Method 2") + 
-  ggtitle("Drugs targeting NLRP3") + scale_color_manual(values=c("red"="red","blue"="blue"))+
-  xlim(c(10,13))+ylim(c(0,20))+
-  # geom_label_repel(data = subset_nlrp3_df, aes(label = Drug_Name, x = Morgan_AAC_KIBA, y = MPNN_CNN_BindingDB),
+g_ZBP1 <- ggplot(ZBP1_df, aes(x=Morgan_AAC_BindingDB_IC50,y=Morgan_CNN_BindingDB_IC50))+
+  geom_point(aes(color=Color,size=Size)) + xlab(expr("DeepPurpose Method 1 \n Binding Affinity Score"))+ ylab(expr("DeepPurpose Method 2 \n Binding Affinity Score")) + 
+  ggtitle("Drugs targeting ZBP1") + scale_color_manual(values=c("red"="red","blue"="blue"))+
+  #xlim(c(10,13))+ylim(c(0,20))+
+  # geom_label_repel(data = subset_ZBP1_df, aes(label = Drug_Name, x = Morgan_AAC_KIBA, y = MPNN_CNN_BindingDB),
   #                  box.padding = 0.25,
   #                  point.padding = 0.05,
   #                  nudge_x = .25,
@@ -38,5 +38,5 @@ g_nlrp3 <- ggplot(nlrp3_df, aes(x=Morgan_AAC_KIBA,y=MPNN_CNN_BindingDB))+
         axis.title.y = element_text(color = "grey20", size = 20, angle = 90, hjust = .5, vjust = .5, face = "plain"),
         title=element_text(color="grey20", size=20, face="plain"))
 
-ggsave(filename="Results/Raj_Analysis/NLRP3_LOC14_Hit_without_annotation.pdf",plot = g_nlrp3, device = pdf(), height = 4, width = 6, units="in")
+ggsave(filename="Results/Raj_Analysis/ZBP1_ZAPi_Hit_without_annotation.pdf",plot = g_ZBP1, device = pdf(), height = 4, width = 6, units="in")
 dev.off()
