@@ -1,0 +1,91 @@
+Ranked matrix loaded: 15928 proteins x 4275 drugs
+Pathik compounds loaded: 17 compounds across groups [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)]
+Valid DrugBank SMILES: 4273 / 4275
+Tanimoto similarity matrix saved.
+                                             top_similar_drugs  Group
+Compound_2   [Pomalidomide, Tolvaptan, 2-{[(6-OXO-1,6-DIHYD...      1
+Compound_3   [Apremilast, Tolvaptan, Tariquidar, Pomalidomi...      1
+Compound_5   [Vintafolide, 3''-(Beta-Chloroethyl)-2'',4''-D...      2
+Compound_6   [3-FLUORO-5-MORPHOLIN-4-YL-N-[1-(2-PYRIDIN-4-Y...      2
+Compound_8   [Vintafolide, Vinorelbine, Vinflunine, Vincris...      3
+Compound_13  [Pomalidomide, Lenalidomide, Thalidomide, Vint...      4
+Compound_19  [Lenalidomide, Pomalidomide, N'-(Pyrrolidino[2...      4
+Compound_28  [Pomalidomide, Lenalidomide, Thalidomide, Apre...      4
+Compound_4   [4-{2,4-Bis[(3-Nitrobenzoyl)Amino]Phenoxy}Phth...      3
+Compound_7   [N-(7-CARBAMIMIDOYL-NAPHTHALEN-1-YL)-3-HYDROXY...      3
+Compound_31  [Pomalidomide, Tolvaptan, Tariquidar, Apremila...      1
+Compound_53  [Tolvaptan, Pomalidomide, Apremilast, 3-fluoro...      1
+Novel1       [Pomalidomide, Lenalidomide, Thalidomide, Dact...      5
+Novel2       [Vintafolide, Vinflunine, 3''-(Beta-Chloroethy...      5
+Novel3       [Vinorelbine, Vinflunine, Vincristine, Vinblas...      5
+Novel4       [Thalidomide, Pomalidomide, Lenalidomide, 2-{3...      6
+Novel5       [Tolvaptan, N-[3-(2-fluoroethoxy)phenyl]-N'-(1...      6
+Group 1: 4 compounds → 14 common DrugBank analogs (threshold=0.3)
+Group 2: 2 compounds → 10 common DrugBank analogs (threshold=0.3)
+Group 3: 3 compounds → 2 common DrugBank analogs (threshold=0.3)
+Group 4: 3 compounds → 6 common DrugBank analogs (threshold=0.3)
+Group 5: 3 compounds → 10 common DrugBank analogs (threshold=0.3)
+Group 6: 2 compounds → 0 common DrugBank analogs (threshold=0.3)
+  Group 1 | top-200: 0 common proteins
+  Group 2 | top-200: 0 common proteins
+  Group 3 | top-200: 24 common proteins
+  Group 4 | top-200: 1 common proteins
+  Group 5 | top-200: 2 common proteins
+  Group 6 | top-200: 0 common proteins
+  Group 1 | top-500: 1 common proteins
+  Group 2 | top-500: 5 common proteins
+  Group 3 | top-500: 118 common proteins
+  Group 4 | top-500: 5 common proteins
+  Group 5 | top-500: 3 common proteins
+  Group 6 | top-500: 0 common proteins
+
+Group summary with protein targets saved.
+Priority proteins loaded: 46
+  Target Type Category Protein Name
+0   Senolytic       A1         BCL2
+1   Senolytic       A1       BCL2L1
+2   Senolytic       A1       BCL2L2
+3   Senolytic       A1         MCL1
+4   Senolytic       A2         PI3K
+
+Condensed priority target mapping saved: 12 rows
+
+=== Priority Target Hits (top-k=200) ===
+
+Group 1 (4 compounds):
+  No priority targets found at this threshold.
+
+Group 2 (2 compounds):
+  No priority targets found at this threshold.
+
+Group 3 (3 compounds):
+  No priority targets found at this threshold.
+
+Group 4 (3 compounds):
+  No priority targets found at this threshold.
+
+Group 5 (3 compounds):
+  No priority targets found at this threshold.
+
+Group 6 (2 compounds):
+  No priority targets found at this threshold.
+
+=== Priority Target Hits (top-k=500) ===
+
+Group 1 (4 compounds):
+  No priority targets found at this threshold.
+
+Group 2 (2 compounds):
+  No priority targets found at this threshold.
+
+Group 3 (3 compounds):
+  [Senolytic | A5] DDR1
+
+Group 4 (3 compounds):
+  No priority targets found at this threshold.
+
+Group 5 (3 compounds):
+  No priority targets found at this threshold.
+
+Group 6 (2 compounds):
+  No priority targets found at this threshold.

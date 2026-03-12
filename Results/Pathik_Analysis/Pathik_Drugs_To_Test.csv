@@ -1,19 +1,18 @@
-Compounds 	SMILES	Groups
-Compound 2	NC1=C2C(C(N(C3=CC=CC=C3)C2=O)=O)=CC=C1	1
-Compound 3	NC1=C2C(C(N(C3=CC(F)=C(O)C(F)=C3)C2=O)=O)=CC=C1	1
-Compound 5	NC1=C2C(C(N(C3=CC(F)=C(O)C(F)=C3)C2=O)=O)=C(F)C=C1	1
-Compound 6	NC1=C2C(C(N(C3=CC(F)=C(O)C(F)=C3)C2=O)=O)=CC(F)=C1	1
-Compound 8	O=C1N(C2=CC(F)=C(O)C(F)=C2)C(C3=CC=CC([N+]([O-])=O)=C31)=O	1
-Compound 13	FC1=C2C(C(N(C3CCC(NC3=O)=O)C2=O)=O)=C(F)C(F)=C1N	1
-Compound 19	NC1=C2C(C(N(C3CCCCC3)C2=S)=O)=CC=C1	1
-Compound 28	NC1=C2C(C(N(C3CCCN(C4=CC=C(S(=O)(NC(C)(C)C)=O)C=C4)C3)C2=O)=O)=CC=C1	1
-Compound 4	O=C1N(C2=CC(F)=C(O)C(F)=C2)C(C3=CC=C([N+]([O-])=O)C=C31)=O	2
-Compound 7	O=C1N(C2=CC(F)=C(O)C(F)=C2)C(C3=CC=CC=C31)=O	2
-Compound 31	NC1=C2C(C(N(C3=CC=C(O)C=C3)C2=O)=O)=CC=C1	2
-Compound 32	NC1=C2C(C(N(C3=CC(F)=C(OC)C(F)=C3)C2=O)=O)=CC=C1	2
-Compound 53	NC1=C2C(C(N(C3=CC(F)=CC(F)=C3)C2=O)=O)=CC=C1	2
-Novel1	OC[C@H]([C@@H]([C@@H]([C@H]1O)O)O)O[C@H]1OCN(C(CCC2N(C3=O)C(C4=CC(N)=CC=C34)=O)=O)C2=O	3
-Novel2	CC(O[C@@H]1[C@@H](OC(C)=O)[C@@H](OC(C)=O)[C@H](O[C@H]1OCN(C(CCC2N(C3=O)C(C4=CC(NC(CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CC)=O)=CC=C34)=O)=O)C2=O)COC(C)=O)=O	3
-Novel3	O=C1OCC([C@H]2CC[C@]3(O)[C@]4([H])CC[C@]5([H])C[C@@H](OCCCCC(NCCN(C6=O)C(C7=CC=C(SC8=CC=C(Br)C=C8)C9=CC=CC6=C97)=O)=O)CC[C@]5(C)[C@@]4([H])C[C@@H](O)[C@]23C)=C1	3
-Novel4	O=C1N(C2CCC(N(COC(CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CC)=O)C2=O)=O)C(C3=CC=CC=C31)=O	3
-Novel5	O=C1N(C2=CC(F)=C(OC(CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CC)=O)C(F)=C2)C(C3=CC=C(N)C=C31)=O	3
+Compounds,SMILES,Groups
+Compound_2,NC1=C2C(C(N(C3=CC=CC=C3)C2=O)=O)=CC=C1,1
+Compound_3,NC1=C2C(C(N(C3=CC(F)=C(O)C(F)=C3)C2=O)=O)=CC=C1,1
+Compound_5,NC1=C2C(C(N(C3=CC(F)=C(O)C(F)=C3)C2=O)=O)=C(F)C=C1,2
+Compound_6,NC1=C2C(C(N(C3=CC(F)=C(O)C(F)=C3)C2=O)=O)=CC(F)=C1,2
+Compound_8,O=C1N(C2=CC(F)=C(O)C(F)=C2)C(C3=CC=CC([N+]([O-])=O)=C31)=O,3
+Compound_13,FC1=C2C(C(N(C3CCC(NC3=O)=O)C2=O)=O)=C(F)C(F)=C1N,4
+Compound_19,NC1=C2C(C(N(C3CCCCC3)C2=S)=O)=CC=C1,4
+Compound_28,NC1=C2C(C(N(C3CCCN(C4=CC=C(S(=O)(NC(C)(C)C)=O)C=C4)C3)C2=O)=O)=CC=C1,4
+Compound_4,O=C1N(C2=CC(F)=C(O)C(F)=C2)C(C3=CC=C([N+]([O-])=O)C=C31)=O,3
+Compound_7,O=C1N(C2=CC(F)=C(O)C(F)=C2)C(C3=CC=CC=C31)=O,3
+Compound_31,NC1=C2C(C(N(C3=CC=C(O)C=C3)C2=O)=O)=CC=C1,1
+Compound_53,NC1=C2C(C(N(C3=CC(F)=CC(F)=C3)C2=O)=O)=CC=C1,1
+Novel1,OC[C@H]([C@@H]([C@@H]([C@H]1O)O)O)O[C@H]1OCN(C(CCC2N(C3=O)C(C4=CC(N)=CC=C34)=O)=O)C2=O,5
+Novel2,CC(O[C@@H]1[C@@H](OC(C)=O)[C@@H](OC(C)=O)[C@H](O[C@H]1OCN(C(CCC2N(C3=O)C(C4=CC(NC(CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CC)=O)=CC=C34)=O)=O)C2=O)COC(C)=O)=O,5
+Novel3,O=C1OCC([C@H]2CC[C@]3(O)[C@]4([H])CC[C@]5([H])C[C@@H](OCCCCC(NCCN(C6=O)C(C7=CC=C(SC8=CC=C(Br)C=C8)C9=CC=CC6=C97)=O)=O)CC[C@]5(C)[C@@]4([H])C[C@@H](O)[C@]23C)=C1,5
+Novel4,O=C1N(C2CCC(N(COC(CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CC)=O)C2=O)=O)C(C3=CC=CC=C31)=O,6
+Novel5,O=C1N(C2=CC(F)=C(OC(CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CC)=O)C(F)=C2)C(C3=CC=C(N)C=C31)=O,6

@@ -1,0 +1,13 @@
+Group,Pathik_Compounds,Top_K_Threshold,Target_Type,Category,Priority_Protein,N_Common_DrugBank_Drugs
+1,Compound_2; Compound_3; Compound_31; Compound_53,200,,,,14
+1,Compound_2; Compound_3; Compound_31; Compound_53,500,,,,14
+2,Compound_5; Compound_6,200,,,,10
+2,Compound_5; Compound_6,500,,,,10
+3,Compound_8; Compound_4; Compound_7,200,,,,2
+3,Compound_8; Compound_4; Compound_7,500,Senolytic,A5,DDR1,2
+4,Compound_13; Compound_19; Compound_28,200,,,,6
+4,Compound_13; Compound_19; Compound_28,500,,,,6
+5,Novel1; Novel2; Novel3,200,,,,10
+5,Novel1; Novel2; Novel3,500,,,,10
+6,Novel4; Novel5,200,,,,0
+6,Novel4; Novel5,500,,,,0
