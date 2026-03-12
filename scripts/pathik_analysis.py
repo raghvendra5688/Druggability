@@ -39,7 +39,7 @@ from rdkit import DataStructs
 # -----------------------------------------------------------------------
 TANIMOTO_THRESHOLD = 0.3   # minimum Tanimoto similarity to consider a DrugBank drug an analog
 TOPK_TC = 20               # top-k most similar DrugBank drugs per compound
-TOPK_PROTEINS = [200, 500]  # protein rank thresholds for intersection analysis
+TOPK_PROTEINS = [200, 500, 1000]  # protein rank thresholds for intersection analysis
 
 OUTPUT_DIR = "../Results/Pathik_Analysis"
 os.makedirs(OUTPUT_DIR, exist_ok=True)

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /export/cse/rmall/Raghvendra/Druggability -name Pathik*)",
+      "Bash(find /export/cse/rmall/Raghvendra/Druggability -name drug_protein*)"
+    ]
+  }
+}
