@@ -46,7 +46,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # %%
 # Load the protein-drug druggability ranking matrix.
-# Format: rows = proteins (genes), columns = drugs, values = ranking scores (lower = better).
+# Format: rows = proteins (genes), columns = drugs, values = ranking scores (higher = better).
 # The first column contains gene names and is used as the DataFrame index.
 final_ranked_protein_drug_df = pd.read_csv(
     "../Results/Final_Ranking/ranking_with_drug_names/out.csv",
@@ -258,7 +258,7 @@ def get_top_n_row_indices(col, n=50):
     """
     Return the row positions of the top-n highest-ranked proteins for a given drug.
 
-    Proteins are ranked by ascending score (lower score = higher rank = better druggability).
+    Proteins are ranked by descending score (higher score = higher rank = better druggability).
 
     Args:
         col (pd.Series): One column of the protein-drug ranking DataFrame.
@@ -267,7 +267,7 @@ def get_top_n_row_indices(col, n=50):
     Returns:
         list of int: Positional row indices of the top-n ranked proteins.
     """
-    sorted_indices = col.argsort()
+    sorted_indices = col.argsort()[::-1]
     return sorted_indices[:n].tolist()
 
 
@@ -277,7 +277,7 @@ def get_topk_common_proteins(topk, final_ranked_protein_drug_df, group_summary_d
 
     For each compound group:
     1. Retrieves the DrugBank drugs identified as common analogs.
-    2. For each analog, finds its top-k highest-ranked proteins (lowest scores).
+    2. For each analog, finds its top-k highest-ranked proteins (highest scores).
     3. Takes the intersection — proteins ranking in the top-k for ALL analogs.
 
     Results are added as a new column 'top_common_proteins{topk}' in group_summary_df.
@@ -326,8 +326,9 @@ def get_topk_common_proteins(topk, final_ranked_protein_drug_df, group_summary_d
 # Run protein target analysis at increasing top-k thresholds
 for topk in TOPK_PROTEINS:
     group_summary_df = get_topk_common_proteins(topk, final_ranked_protein_drug_df, group_summary_df)
+    group_summary_df[f"n_top_common_proteins{topk}"] = group_summary_df[f"top_common_proteins{topk}"].apply(len)
     for _, row in group_summary_df.iterrows():
-        n_proteins = len(row[f"top_common_proteins{topk}"])
+        n_proteins = row[f"n_top_common_proteins{topk}"]
         print(f"  Group {row['Group']} | top-{topk}: {n_proteins} common proteins")
 
 group_summary_df.to_csv(
@@ -418,3 +419,61 @@ for topk in TOPK_PROTEINS:
         else:
             for _, r in hits.iterrows():
                 print(f"  [{r['Target_Type']} | {r['Category']}] {r['Priority_Protein']}")
+
+
+# %%
+# ---------------------------------------------------------------------------
+# Venetoclax / Navitoclax top-ranked target analysis
+# ---------------------------------------------------------------------------
+# For each of the two drugs, rank all proteins by ascending score (lower = better)
+# then take the top-N proteins at each threshold defined in TOPK_PROTEINS.
+# Output one CSV with one row per drug plus one row for the intersection at each threshold.
+
+TARGET_DRUGS = ["Venetoclax", "Navitoclax"]
+
+# Verify both drugs exist in the ranking matrix
+missing = [d for d in TARGET_DRUGS if d not in final_ranked_protein_drug_df.columns]
+if missing:
+    print(f"WARNING: the following drugs were not found in the ranking matrix: {missing}")
+else:
+    print(f"Found both {TARGET_DRUGS} in the ranking matrix.")
+
+# Build top-N protein lists for each drug at each threshold
+drug_topk_proteins = {}   # {drug_name: {topk: [protein, ...]}}
+for drug in TARGET_DRUGS:
+    if drug not in final_ranked_protein_drug_df.columns:
+        drug_topk_proteins[drug] = {k: [] for k in TOPK_PROTEINS}
+        continue
+    col = final_ranked_protein_drug_df[drug]
+    sorted_proteins = col.sort_values(ascending=False).index.tolist()  # descending: highest score = best-ranked
+    drug_topk_proteins[drug] = {
+        topk: sorted_proteins[:topk] for topk in TOPK_PROTEINS
+    }
+
+# Assemble output rows: one per drug + one intersection row per threshold
+vn_rows = []
+for topk in TOPK_PROTEINS:
+    sets = {d: set(drug_topk_proteins[d][topk]) for d in TARGET_DRUGS}
+    intersection = set.intersection(*sets.values()) if all(sets.values()) else set()
+
+    for drug in TARGET_DRUGS:
+        proteins = drug_topk_proteins[drug][topk]
+        vn_rows.append({
+            "Drug": drug,
+            "Top_K_Threshold": topk,
+            "N_Proteins": len(proteins),
+            "Proteins": "; ".join(proteins),
+        })
+
+    vn_rows.append({
+        "Drug": "Intersection (" + " & ".join(TARGET_DRUGS) + ")",
+        "Top_K_Threshold": topk,
+        "N_Proteins": len(intersection),
+        "Proteins": "; ".join(sorted(intersection)),
+    })
+
+vn_df = pd.DataFrame(vn_rows)
+vn_output_path = os.path.join(OUTPUT_DIR, "Venetoclax_Navitoclax_Top_Targets.csv")
+vn_df.to_csv(vn_output_path, index=False)
+print(f"\nVenetoclax / Navitoclax target analysis saved to {vn_output_path}")
+print(vn_df[["Drug", "Top_K_Threshold", "N_Proteins"]].to_string(index=False))
