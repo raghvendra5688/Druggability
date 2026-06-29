@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(find /export/cse/rmall/Raghvendra/Druggability -name Pathik*)",
-      "Bash(find /export/cse/rmall/Raghvendra/Druggability -name drug_protein*)"
+      "Bash(find /export/cse/rmall/Raghvendra/Druggability -name drug_protein*)",
+      "Bash(ls /export/effichem/ 2>/dev/null | head -20; ls /export/qcai-omics/Raghvendra/Druggability/Results/Chirag_Analysis/ 2>/dev/null)",
+      "Read(//export/**)",
+      "Bash(/export/home/rmall/micromamba/envs/effichem/bin/python -c \"import DeepPurpose; print\\('DeepPurpose version:', DeepPurpose.__version__\\)\")",
+      "Bash(/export/home/rmall/micromamba/envs/effichem/bin/python -c \"from DeepPurpose import DTI as models; print\\('DeepPurpose DTI imported OK'\\)\")"
     ]
   }
 }
