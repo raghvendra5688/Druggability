@@ -92,10 +92,18 @@ for model_name in model_names:
         print(f"[missing] {model_name}")
         continue
 
-    df = pd.read_csv(path, header="infer", sep="|")
-    df = df.drop(columns=[c for c in df.columns if "Unnamed" in str(c)], errors="ignore")
-    # Columns after dropping index/unnamed: Rank, Drug Name, Target Name, Binding Score
-    df.columns = ["Rank", "Drug Name", "Target Name", "Binding Score"]
+    # DeepPurpose writes an ASCII (PrettyTable) table: "+---+" borders and "| a | b |" rows
+    rows = []
+    with open(path) as fh:
+        for line in fh:
+            line = line.strip()
+            if not line.startswith("|"):
+                continue  # border lines
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            if len(cells) != 4 or cells[0] == "Rank":
+                continue  # header or malformed
+            rows.append(cells)
+    df = pd.DataFrame(rows, columns=["Rank", "Drug Name", "Target Name", "Binding Score"])
     df = df.drop(columns=["Rank"])
     df["Drug Name"]   = df["Drug Name"].str.strip()
     df["Target Name"] = df["Target Name"].str.strip()
